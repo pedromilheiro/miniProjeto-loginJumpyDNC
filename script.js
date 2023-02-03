@@ -7,6 +7,7 @@ const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
 
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     nameValidate();
@@ -16,73 +17,81 @@ form.addEventListener('submit', (event) => {
     passwordValidate();
 })
 
-function formValidate(form){
-  
+function formValidate(index) {
+    if (nameValidate, emailValidate, phoneValidate, cpfValidate, passwordValidate = true) {
+        sucess();
+    }
+    else {
+        setError()
+    }
 }
 
-function setError(index){
-msgError[index].style.display = 'block';
-msgReturn.style.display = 'block';
+function setError(index) {
+    msgError[index].style.display = 'block';
+    msgReturn.style.display = 'block';
+    returnPositive.style.display = 'none';
 }
 
-function noError(index){
-    msgError[index].style.display = 'none'; 
-    msgReturn.style.display = 'none'; 
+function noError(index) {
+    msgError[index].style.display = 'none';
+    msgReturn.style.display = 'none';
 }
 
-function sucess(){
+function sucess() {
     returnPositive.style.display = 'block';
 }
 
-function nameValidate(){
-    if(form[0].value.length <= 2)
-    {
-        setError(0); 
+function nameValidate() {
+    if (form[0].value.length <= 2) {
+        setError(0);
     }
-    else  
-    {
-       noError(0); 
-       return true;
+    else {
+        noError(0);
+        return true;
     }
-   
-    
+
+
 }
 
-function emailValidate(){
-   if(!emailRegex.test(form[1].value)){
-    setError(1);
-   }
-   else{
-    noError(1);
-   }
-   
+function emailValidate() {
+    if (!emailRegex.test(form[1].value)) {
+        setError(1);
+    }
+    else {
+        noError(1);
+        return true;
+    }
+
 }
 
-function phoneValidate(){
-    if(form[2].value.length < 11){
+function phoneValidate() {
+    if (form[2].value.length < 11) {
         setError(2);
     }
-    else{
-        noError(2); 
+    else {
+        noError(2);
+        return true;
     }
 }
 
-function cpfValidate(){
-    if(form[3].value.length < 11){
+function cpfValidate() {
+    if (form[3].value.length < 11) {
         setError(3);
     }
-    else{
-        noError(3); 
+    else {
+        noError(3);
+        return true;
     }
 }
 
-function passwordValidate(){
-    if(form[4].value.length < 6){
+function passwordValidate() {
+    if (form[4].value.length < 6) {
         setError(4);
     }
-    else{
-        noError(4); 
+    else {
+        noError(4);
+        return true;
     }
-   
+
 }
 
