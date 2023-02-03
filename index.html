@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@400;700&family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <title>JUMPY LOGIN</title>
+
+
+</head>
+<body>
+    <header>
+        <img src="dncLogo.svg" alt="">
+    </header>
+    <section id="titleArea">
+        <h1>
+            <img src="jumpyLogo.svg" alt="">
+        </h1>
+        <h2>
+            Bem vindo ao Jumpy!
+        </h2>
+    </section>
+    <section id="content">
+        <form id="form" action="" method="post">
+          
+            <p>
+                <label for="">Nome Completo</label>
+                <br>
+                <input class="inputRequired" placeholder="Nome Completo" type="text" name="" oninput="nameValidate()">
+                <div class="msgError">Campo obrigatorio.</div>
+                <br>
+            </p>
+
+            <p>
+                <label for="">Email</label>
+                <br>
+                <input class="inputRequired" placeholder="email@email.com" type="text" oninput="emailValidate()">
+                <div class="msgError">Campo obrigatorio.</div>
+                <br>
+            </p>
+
+            <p>
+                <label for="">Telefone</label>
+                <br>
+                <input class="inputRequired" placeholder="(00) 00000-0000" type="number" oninput="phoneValidate()">
+                <div  class="msgError">Campo obrigatorio.</div>
+                <br>
+            </p>
+            
+            <p>
+                <label for="">CPF</label>
+                <br>
+                <input class="inputRequired" placeholder="000-000-000-00" type="number" oninput="cpfValidate()">
+                <div class="msgError">Campo obrigatorio.</div>
+                <br>
+                  
+            </p>
+
+            <p>
+                <label for="">Senha</label>
+                <br>
+                <input class="inputRequired" placeholder="*************" type="password" oninput="passwordValidate()">
+                <div class="msgError">Campo obrigatorio.</div>
+                <br>
+            </p>
+
+            <button type="submit" onclick="formValidate()">Cadastrar</button>
+            
+        </form>
+
+        <div class="return">Campos obrigatorios não registrados.</div>
+        <div class="returnPositive">Sucesso.</div>
+    </section>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
