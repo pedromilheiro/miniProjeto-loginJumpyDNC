@@ -25,37 +25,37 @@
         </h2>
     </section>
     <section id="content">
-        <form id="form" action="" method="post">
+        <form id="form" action="">
           
             <p>
                 <label for="">Nome Completo</label>
                 <br>
-                <input class="inputRequired" placeholder="Nome Completo" type="text" name="" oninput="nameValidate()">
-                <div class="msgError">Campo obrigatorio.</div>
+                <input class="inputRequired" placeholder="Nome Completo" type="text" name="">
+                <p class="msgError"></p>
                 <br>
             </p>
 
             <p>
                 <label for="">Email</label>
                 <br>
-                <input class="inputRequired" placeholder="email@email.com" type="text" oninput="emailValidate()">
-                <div class="msgError">Campo obrigatorio.</div>
+                <input class="inputRequired" placeholder="email@email.com" type="text" >
+                <p class="msgError" ></p>
                 <br>
             </p>
 
             <p>
                 <label for="">Telefone</label>
                 <br>
-                <input class="inputRequired" placeholder="(00) 00000-0000" type="number" oninput="phoneValidate()">
-                <div  class="msgError">Campo obrigatorio.</div>
+                <input class="inputRequired" placeholder="(00) 00000-0000" type="number" >
+                <p  class="msgError"></p>
                 <br>
             </p>
             
             <p>
                 <label for="">CPF</label>
                 <br>
-                <input class="inputRequired" placeholder="000-000-000-00" type="number" oninput="cpfValidate()">
-                <div class="msgError">Campo obrigatorio.</div>
+                <input class="inputRequired" placeholder="000-000-000-00" type="number" >
+                <p class="msgError"></p>
                 <br>
                   
             </p>
@@ -63,17 +63,17 @@
             <p>
                 <label for="">Senha</label>
                 <br>
-                <input class="inputRequired" placeholder="*************" type="password" oninput="passwordValidate()">
-                <div class="msgError">Campo obrigatorio.</div>
+                <input class="inputRequired" placeholder="*************" type="password">
+                <p class="msgError"></p>
                 <br>
             </p>
 
-            <button type="submit" onclick="formValidate()">Cadastrar</button>
+            <button type="submit" id="btnSubmit">Cadastrar</button>
             
         </form>
 
-        <div class="return">Campos obrigatorios não registrados.</div>
-        <div class="returnPositive">Sucesso.</div>
+        <div class="return"></div>
+        
     </section>
 
     <script src="script.js"></script>

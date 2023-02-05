@@ -2,96 +2,59 @@ const form = document.getElementById("form");
 const inputsForm = document.querySelectorAll(".inputRequired");
 const msgError = document.querySelectorAll(".msgError");
 const msgReturn = document.querySelector(".return");
-const returnPositive = document.querySelector(".returnPositive")
-const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const btnSend = document.querySelector("#btnSubmit");
+const returnPositive = document.querySelector(".returnPositive");
+
+btnSend.setAttribute("disabled", "");
+
+form.addEventListener("submit", (e) => {
+  if (!btnSend.getAttributeNode("disabled")) {
+
+    msgReturn.innerHTML = "Sucesso"
+    msgReturn.style.color="#0f7b0f"
+
+    setTimeout(()=>{
+      form.submit()
+    },3000);
+
+  }
+    e.preventDefault();
+
+});
+
+inputsForm.forEach((element, index) => {
+  element.addEventListener("click", () => {
+    element.addEventListener("input", () => {
+      if (element.value == "") {
+        msgError[index].innerHTML = "*Campo obrigatorio.*";
+        verifica();
+      } else {
+        msgError[index].innerHTML = "";
+        verifica();
+      }
+    });
+  });
+});
 
 
+function verifica() {
+  let verificaArray = [];
 
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    nameValidate();
-    emailValidate();
-    phoneValidate();
-    cpfValidate();
-    passwordValidate();
-})
-
-function formValidate(index) {
-    if (nameValidate, emailValidate, phoneValidate, cpfValidate, passwordValidate = true) {
-        sucess();
+  for (i = 0; i < inputsForm.length; i++) {
+    if (inputsForm[i].value != "") {
+      verificaArray.push(inputsForm[i].value);
     }
-    else {
-        setError()
-    }
+  }
+
+  if (verificaArray.length != inputsForm.length) {
+    msgReturn.innerHTML = "Campos obrigatorios não registrados.";
+    btnSend.setAttribute("disabled", "");
+    btnSend.style.backgroundColor = "#afafaf";
+  } else {
+    msgReturn.innerHTML = "";
+    btnSend.removeAttribute("disabled");
+    btnSend.style.backgroundColor = "#0C70F2";
+  }
 }
 
-function setError(index) {
-    msgError[index].style.display = 'block';
-    msgReturn.style.display = 'block';
-    returnPositive.style.display = 'none';
-}
-
-function noError(index) {
-    msgError[index].style.display = 'none';
-    msgReturn.style.display = 'none';
-}
-
-function sucess() {
-    returnPositive.style.display = 'block';
-}
-
-function nameValidate() {
-    if (form[0].value.length <= 2) {
-        setError(0);
-    }
-    else {
-        noError(0);
-        return true;
-    }
-
-
-}
-
-function emailValidate() {
-    if (!emailRegex.test(form[1].value)) {
-        setError(1);
-    }
-    else {
-        noError(1);
-        return true;
-    }
-
-}
-
-function phoneValidate() {
-    if (form[2].value.length < 11) {
-        setError(2);
-    }
-    else {
-        noError(2);
-        return true;
-    }
-}
-
-function cpfValidate() {
-    if (form[3].value.length < 11) {
-        setError(3);
-    }
-    else {
-        noError(3);
-        return true;
-    }
-}
-
-function passwordValidate() {
-    if (form[4].value.length < 6) {
-        setError(4);
-    }
-    else {
-        noError(4);
-        return true;
-    }
-
-}
 
